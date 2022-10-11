@@ -1,0 +1,24 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Galaxy Buds live",
+            "price": 377.99
+        },
+        {
+            "id": 2,
+            "name": "Galaxy S10",
+            "price": 2499.99
+        },
+        {
+            "id": 3,
+            "name": "MacBook M2",
+            "price": 12999.99
+        },
+        {
+            "id": 4,
+            "name": "PlayStation 4",
+            "price": 2999.99
+        }
+    ]
+}
