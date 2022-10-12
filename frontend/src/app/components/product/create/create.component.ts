@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
 })
 export class CreateComponent implements OnInit {
 
-  private product: Product = {
+  product: Product = {
     name: "",
     price: 0
   }
