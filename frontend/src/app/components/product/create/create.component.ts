@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  prop = 'Qualquer'
+  prop = 'Qualquer';
 
   constructor() { }
 

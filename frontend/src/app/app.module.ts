@@ -20,6 +20,8 @@ import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
 import { CreateComponent } from './components/product/create/create.component';
 
+import { MatButtonModule } from "@angular/material/button";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { CreateComponent } from './components/product/create/create.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
