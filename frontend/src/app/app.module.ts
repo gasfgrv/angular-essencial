@@ -36,6 +36,7 @@ import { MatSortModule } from '@angular/material/sort';
 
 import LocalePt from "@angular/common/locales/pt";
 import { registerLocaleData } from "@angular/common";
+import { UpdateComponent } from './components/product/update/update.component';
 
 registerLocaleData(LocalePt)
 
@@ -51,7 +52,8 @@ registerLocaleData(LocalePt)
     ForDirective,
     CreateComponent,
     ReadComponent,
-    MockTableComponent
+    MockTableComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
