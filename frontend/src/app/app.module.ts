@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +29,16 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { ReadComponent } from './components/product/read/read.component';
 
+import { MockTableComponent } from './components/product/mock-table/mock-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+import LocalePt from "@angular/common/locales/pt";
+import { registerLocaleData } from "@angular/common";
+
+registerLocaleData(LocalePt)
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +50,8 @@ import { ReadComponent } from './components/product/read/read.component';
     RedDirective,
     ForDirective,
     CreateComponent,
-    ReadComponent
+    ReadComponent,
+    MockTableComponent
   ],
   imports: [
     BrowserModule,
@@ -55,9 +66,15 @@ import { ReadComponent } from './components/product/read/read.component';
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
