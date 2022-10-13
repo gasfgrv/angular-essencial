@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { catchError, EMPTY, map, Observable } from 'rxjs';
 import { Product } from './product.model';
 
 @Injectable({
@@ -16,16 +16,25 @@ export class ProductService {
     private http: HttpClient
   ) { }
 
-  showMessage(msg: string): void {
+  showMessage(msg: string, isError: boolean = false): void {
     this.snackbar.open(msg, 'x', {
       duration: 3000,
       horizontalPosition: 'right',
-      verticalPosition: 'top'
+      verticalPosition: 'top',
+      panelClass: isError ? ['msg-error'] : ['msg-success']
     })
   }
 
   create(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.baseUrl, product)
+    return this.http.post<Product>(this.baseUrl, product).pipe(
+      map((obj) => obj),
+      catchError(e => this.handleError(e))
+    )
+  }
+
+  handleError(error: any): Observable<any> {
+    this.showMessage('Ocorreu um erro!', true)
+    return EMPTY
   }
 
   read(): Observable<Product[]> {
